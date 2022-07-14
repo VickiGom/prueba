@@ -94,12 +94,17 @@ public class AlumnoAlta extends AppCompatActivity {
                     alumno.setMatricula(txtMatricula.getText().toString());
                     alumno.setNombre(txtNombre.getText().toString());
                     alumno.setCarrera(txtGrado.getText().toString());
-                    alumno.setImgURI(imgURI.toString());
+                    if(imgURI != null){
+                        alumno.setImgURI(imgURI.toString());
+                    }else{
+
+                    }
 
                     Aplicacion.getAlumnos().get(posicion).setMatricula(alumno.getMatricula());
                     Aplicacion.getAlumnos().get(posicion).setNombre(alumno.getNombre());
                     Aplicacion.getAlumnos().get(posicion).setCarrera(alumno.getCarrera());
                     Aplicacion.getAlumnos().get(posicion).setImgURI(alumno.getImgURI());
+
                     db.openDataBase();
                     db.updateAlumno(alumno);
                     db.closeDataBase();
